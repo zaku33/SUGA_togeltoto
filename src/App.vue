@@ -5,6 +5,7 @@
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
   />
+  <!-- SCRIPT -->
   <!-- HEADER -->
   <header id="header">
     <div class="header-top" style="width:100%">
@@ -18,7 +19,6 @@
           </div>
         </div>
         <!-- #END logo ------------------------------- -->
-
         <!-- #START l&r  ******************************* -->
         <!-- LOGIN FORM -->
         <div v-if="!isAuthenticate" class="col-md-9" id="notLogIn" style="float:left;">
@@ -50,7 +50,7 @@
                     type="button"
                     class="btn btn-sm btn-primary form-group float-xs-right"
                     title="Sign In"
-                    @click="login()"
+                    @click="logIn()"
                   >Sign In</button>
                   <button type="button" class="btn btn-sm btn-danger form-group float-xs-right">
                     <router-link v-bind:to="{name : 'register'}">Register</router-link>
@@ -67,52 +67,40 @@
         </div>
         <!-- ALREADY LOGGED IN  -->
         <div v-else class="col-md-9" id="loggedIn" style="float:left;">
-          <div id="profile_" style="color:#fff;">
-            <table style="margin-bottom:5px;">
-              <tr>
-                <td>
-                  <p
-                    style="font-size: 16px;  font-weight: bold;  padding: 5px;margin: 5px;"
-                  >{{ user.uName }}</p>
-                </td>
-                <td align="right">
-                  <a href="/refresh" style="padding:5px;">
-                    <span class="glyphicon glyphicon-refresh" style="color:#ff0;"></span>
-                  </a> [
-                  <a href="/" style="color: #ff0">Log out</a>]
-                </td>
-              </tr>
-              <tr style="border-bottom: 1px solid #C79F7F;">
-                <td colspan="2" align="left" style="padding-left: 8px;padding-bottom:5px;">
-                  <a href="/user/change-password" style="color: #ffbd00;font-size:14px;">
-                    <span class="glyphicon glyphicon-lock"></span> Change Password
-                  </a>
-                </td>
-              </tr>
-            </table>
-            <p>
-              - Bet Credit:
-              <b>{{ user.betCredit }}</b>
-            </p>
-            <p>
-              - Given Credit:
-              <b>{{ user.givenCredit }}</b>
-            </p>
-            <p>
-              - Outstanding:
-              <b>{{ user.outstanding }}</b>
-            </p>
-            <table style="margin-top: 5px;border-collapse: inherit;border-spacing: 2px;">
-              <tr style>
-                <td class="ashuiv" align="center" width="50%">
-                  <a href="/user/deposit" style="color: #333">Deposit</a>
-                </td>
-                <td class="ashuiv" align="center">
-                  <a href="/user/withdraw" style="color: #333">Withdraw</a>
-                </td>
-              </tr>
-            </table>
-          </div>
+          <mdb-card class="card-body row" style="margin-top: 1rem; margin-bot : 1rem">
+            <mdb-card-title>
+              {{user.uName}}
+              <span>
+                <a class="fa fa-home"></a>
+              </span>
+              <br />
+              <a class="btn btn-outline-primary">
+                <a class="fas fa-sign-out-alt" id="logout">Logout</a>
+              </a>
+              <span></span>
+              <a class="btn btn-outline-primary">
+                <a class="fas fa-key" id="changePass">Change pass</a>
+              </a>
+            </mdb-card-title>
+            <mdb-card-text>
+              <p>
+                - Bet Credit:
+                <b>{{ user.betCredit }}</b>
+              </p>
+              <p>
+                - Given Credit:
+                <b>{{ user.givenCredit }}</b>
+              </p>
+              <p>
+                - Outstanding:
+                <b>{{ user.outstanding }}</b>
+              </p>
+            </mdb-card-text>
+            <div class="flex-row">
+              <a class="btn btn-info">Deposit</a>
+              <a class="btn btn-danger">Withdraw</a>
+            </div>
+          </mdb-card>
         </div>
       </div>
       <!-- #END l&r ------------------------------- -->
@@ -122,7 +110,7 @@
         <b-navbar toggleable="lg" type="dark" variant="info" id="navBars">
           <b-navbar-brand href="#"></b-navbar-brand>
           <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
-          <b-collapse id="nav-collapse" is-nav>
+          <b-collapse id="nav-collapse" is-nav style="height:30px">
             <b-navbar-nav>
               <b-nav-item>
                 <router-link class="asize alert text-dark" :to="{path :'/home'}">
@@ -168,34 +156,52 @@
           <b-navbar-brand href="#"></b-navbar-brand>
           <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
           <b-collapse id="nav-collapse" is-nav>
-            <b-navbar-nav style="touch-action: pan-y; text-align:center;">
-              <router-link class="asize alert text-dark" :to="{path :'/home'}">
-                <li class="fa fa-home">Home</li>
-              </router-link>
-              <router-link class="asize alert text-dark" :to="{path :'/sport'}">
-                <li class="fa fa-globe">Sport</li>
-              </router-link>
-              <router-link class="asize alert text-dark" :to="{path :'/betList'}">
-                <li class="fa fa-list">Bet list</li>
-              </router-link>
-              <router-link class="asize alert text-dark" :to="{path :'/transaction'}">
-                <li class="fa fa-usd">Transaction</li>
-              </router-link>
-              <router-link class="asize alert text-dark" :to="{path :'/howToPlay'}">
-                <li class="fa fa-play-circle-o">How to play</li>
-              </router-link>
-              <router-link class="asize alert text-dark" :to="{path :'/refferal'}">
-                <li class="fa fa-list">Refferal</li>
-              </router-link>
-              <router-link class="asize alert text-dark" :to="{path :'/about'}">
-                <li class="fa fa-ship">About Us</li>
-              </router-link>
-              <router-link class="asize alert text-dark" :to="{path :'/android'}">
-                <li class="fa fa-android">Android</li>
-              </router-link>
-              <router-link class="asize alert text-dark" :to="{path :'/solution'}">
-                <li class="fa fa-times">Solution</li>
-              </router-link>
+            <b-navbar-nav>
+              <b-nav-item>
+                <router-link class="asize alert text-dark" :to="{path :'/home'}">
+                  <li class="fa fa-home">Home</li>
+                </router-link>
+              </b-nav-item>
+              <b-nav-item>
+                <router-link class="asize alert text-dark" :to="{path :'/sport'}">
+                  <li class="fa fa-globe">Sport</li>
+                </router-link>
+              </b-nav-item>
+              <b-nav-item>
+                <router-link class="asize alert text-dark" :to="{path :'/betList'}">
+                  <li class="fa fa-list">Bet list</li>
+                </router-link>
+              </b-nav-item>
+              <b-nav-item>
+                <router-link class="asize alert text-dark" :to="{path :'/transaction'}">
+                  <li class="fa fa-usd">Transaction</li>
+                </router-link>
+              </b-nav-item>
+              <b-nav-item>
+                <router-link class="asize alert text-dark" :to="{path :'/howToPlay'}">
+                  <li class="fa fa-play-circle-o">How to play</li>
+                </router-link>
+              </b-nav-item>
+              <b-nav-item>
+                <router-link class="asize alert text-dark" :to="{path :'/refferal'}">
+                  <li class="fa fa-list">Refferal</li>
+                </router-link>
+              </b-nav-item>
+              <b-nav-item>
+                <router-link class="asize alert text-dark" :to="{path :'/about'}">
+                  <li class="fa fa-ship">About Us</li>
+                </router-link>
+              </b-nav-item>
+              <b-nav-item>
+                <router-link class="asize alert text-dark" :to="{path :'/android'}">
+                  <li class="fa fa-android">Android</li>
+                </router-link>
+              </b-nav-item>
+              <b-nav-item>
+                <router-link class="asize alert text-dark" :to="{path :'/solution'}">
+                  <li class="fa fa-times">Solution</li>
+                </router-link>
+              </b-nav-item>
             </b-navbar-nav>
             <!-- Right aligned nav items -->
           </b-collapse>
@@ -207,13 +213,15 @@
   <!-- BODY -->
   <body>
     <!-- Router-view is using for get all component and display all code below the code above -->
-    <router-view />
+    <br>
+      <router-view />
   </body>
+  <br>
   <!-- FOOTER -->
   <footer>
-    <div class="container" style="max-width: 100%;">
+    <div class="footer" style="max-width: 100%;">
       <div class="row">
-        <div class="container-fluid bg bg-success">
+        <div class="col-xs-12 col-md-12 col-sm-12 bg-success">
           <p id="copyright">
             Togeltoto is an agent site or can also be called an online lottery dealer specifically for helping maniacs,
             communities or all members of the online lottery and also as an updated media portal for lottery gambling players to find out
@@ -242,102 +250,16 @@
       </div>
     </div>
   </div>
+  <Chat
+    iconColorProp="#e6e6e6"
+    messageOutColorProp="#4d9e93"
+    messageInColorProp="#f1f0f0"
+    :messageListProp="messageList"
+    :initOpenProp="initOpen"
+    @onToggleOpen="handleToggleOpen"
+    @onMessageWasSent="handleMessageReceived"
+  />
 </div>
 </template>
-<script>
-/* eslint-disable */
-import _Login from "@/services/login.js";
-import moment from "moment";
-import CheckError from "@/helper/checkError.js";
-import { resolve } from "url";
-export default {
-  name: "app",
-  data() {
-    return {
-      username: "",
-      password: "",
-      isAuthenticate: false,
-      user: {}
-    };
-  },
-  methods: {
-    async login() {
-      var service = "WapAuthService";
-      var method = "login";
-      var secretKey = moment(new Date()).format("YYYY-MM-DD");
-      var params = {
-        uName: this.username,
-        password: this.password
-      };
-      var sendingData = await _Login.uLogin(service, method, params, secretKey);
-      var check = await CheckError.CheckingErrorCode(
-        sendingData.data.errorCode
-      );
-      if (check.errCode != 0) {
-        this.isAuthenticate = false;
-        alert(`${check.message}`);
-      } else {
-        this.isAuthenticate = true;
-        this.user = sendingData.data.data.userInfo;
-        localStorage.setItem("access_token", sendingData.data.data.token);
-      }
-    }
-  }
-};
-</script>
-<style>
-body {
-  background-image: url("https://wallpaperplay.com/walls/full/8/8/a/78866.jpg#.XYRT2_nWtJs.link");
-  background-size: cover;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-}
-img {
-  max-width: 100%;
-  max-height: 100%;
-}
-.btn-fb {
-  color: #fff;
-  background-color: #3b5998;
-}
-.btn-fb:hover {
-  color: #fff;
-  background-color: #496ebc;
-}
-.btn-tw {
-  color: #fff;
-  background-color: #55acee;
-}
-.btn-tw:hover {
-  color: #fff;
-  background-color: #59b5fa;
-}
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 1px;
-}
-.asize {
-  margin-top: 1%;
-  color: white;
-  display: inline-block;
-}
-.asize:hover ~ hr {
-  display: inline;
-  text-decoration: none;
-  opacity: 0.7;
-  cursor: pointer;
-}
-.asize:visited {
-  color: red;
-}
-#copyright {
-  color: black;
-}
-#navBars {
-  width: 100%;
-}
-</style>
+<script src="./controllers/App.controller.js"></script>
+<style src="./css/App.vue.css"></style>

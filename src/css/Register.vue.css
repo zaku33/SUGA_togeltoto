@@ -1,0 +1,52 @@
+/* eslint-disable */
+
+label {
+    margin: auto;
+    padding-right: 10px;
+    width: auto;
+    color: blue;
+    text-align: right;
+    font-size: 150%;
+}
+
+.btn {
+    width: auto;
+}
+
+.form input,
+.form textarea {
+    width: 500px;
+    padding: 10px;
+    border: 1px solid #e0dede;
+    outline: none;
+    font-size: 12px;
+}
+
+.form div {
+    margin: 1px;
+}
+
+#lb {
+    color: red;
+}
+
+#BodyInner {
+    max-width: 100%;
+    margin: 0 auto;
+    border-radius: 25px;
+    border: 1px solid black;
+}
+
+input[name="inout"] {
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+hr {
+    height: 1px;
+    width: 100%;
+    margin: 0;
+    background: white;
+    border: none;
+    /* transition: .3s ease-in-out; */
+}
