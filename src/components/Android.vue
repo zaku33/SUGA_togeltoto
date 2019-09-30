@@ -42,9 +42,3 @@
     </div>
   </div>
 </template>
-<style scoped>
-/* eslint-disable */
-#hi {
-  color: red;
-}
-</style>

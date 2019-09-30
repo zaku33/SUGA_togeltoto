@@ -14,6 +14,14 @@ export default {
                     }
                     return respond;
                 };
+            case (-9):
+                {
+                    respond = {
+                        message: 'Session timed out!',
+                        errCode: -9
+                    }
+                    return respond;
+                };
             case (-12):
                 {
                     respond = {

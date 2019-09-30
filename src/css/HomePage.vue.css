@@ -1,5 +1,5 @@
 .slider-image {
-    background-image: url("https://c.wallhere.com/photos/63/91/1230x768_px_clouds_Colorful_forest_lake_landscape_mountain_nature-697398.jpg!d");
+    background-image: url("../assets/imageSlider.jpg");
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -73,4 +73,8 @@ just for appearance; change whatever you want
 
 .result-table {
     text-align: center
+}
+
+.el-table__header-wrapper {
+    background: repeating-linear-gradient( 45deg, #606dbc, #606dbc 10px, #465298 10px, #465298 20px);
 }

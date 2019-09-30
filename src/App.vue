@@ -14,7 +14,7 @@
         <div class="col-md-3" style="float:right;">
           <div id="logo" style="max-width: 50%;">
             <a href="/" class="standard-logo">
-              <img :src=" 'http://bisnistoto.com/web/public/images/lg1.png' " />
+              <img src="./assets/lg1.png" />
             </a>
           </div>
         </div>
@@ -24,8 +24,8 @@
         <div v-if="!isAuthenticate" class="col-md-9" id="notLogIn" style="float:left;">
           <form>
             <div class="padding-top">
-              <div class="form-row" style="justify-content: flex-end">
-                <div class="form-group col-md-3 col-sm-6 col-6">
+              <div class="form-row">
+                <div class="form-group col-md-4 col-sm-4 col-6">
                   <input
                     type="text"
                     v-model="username"
@@ -35,7 +35,7 @@
                     tabindex="1"
                   />
                 </div>
-                <div class="form-group col-md-3 col-sm-6 col-6">
+                <div class="form-group col-md-4 col-sm-6 col-6">
                   <input
                     type="password"
                     v-model="password"
@@ -45,7 +45,7 @@
                     tabindex="2"
                   />
                 </div>
-                <div class="form-group col-md-2">
+                <div class="form-group col-md-4">
                   <button
                     type="button"
                     class="btn btn-sm btn-primary form-group float-xs-right"
@@ -69,17 +69,19 @@
         <div v-else class="col-md-9" id="loggedIn" style="float:left;">
           <mdb-card class="card-body row" style="margin-top: 1rem; margin-bot : 1rem">
             <mdb-card-title>
-              {{user.uName}}
+              {{user.uName }}
               <span>
                 <a class="fa fa-home"></a>
               </span>
               <br />
               <a class="btn btn-outline-primary">
-                <a class="fas fa-sign-out-alt" id="logout">Logout</a>
+                <a class="fas fa-sign-out-alt" id="logout" @click="logOut()">Logout</a>
               </a>
               <span></span>
               <a class="btn btn-outline-primary">
-                <a class="fas fa-key" id="changePass">Change pass</a>
+                <router-link :to="{path :'/changePassword'}">
+                  <a class="fas fa-key" id="changePass">Change Password</a>
+                </router-link>
               </a>
             </mdb-card-title>
             <mdb-card-text>
@@ -163,7 +165,7 @@
                 </router-link>
               </b-nav-item>
               <b-nav-item>
-                <router-link class="asize alert text-dark" :to="{path :'/sport'}">
+                <router-link class="asize alert text-dark" :to="{path :'/sportBook'}">
                   <li class="fa fa-globe">Sport</li>
                 </router-link>
               </b-nav-item>
@@ -213,10 +215,10 @@
   <!-- BODY -->
   <body>
     <!-- Router-view is using for get all component and display all code below the code above -->
-    <br>
-      <router-view />
+    <br />
+    <router-view />
   </body>
-  <br>
+  <br />
   <!-- FOOTER -->
   <footer>
     <div class="footer" style="max-width: 100%;">

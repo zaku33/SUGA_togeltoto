@@ -9,19 +9,15 @@ import VueCarousel from '@chenfengyuan/vue-carousel'
 import Vuetify from 'vuetify'
 import ElementUI from 'element-ui';
 
-
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import 'mdbvue/build/css/mdb.css'
 import 'element-ui/lib/theme-chalk/index.css';
 
-
 Vue.use(BootstrapVue)
 Vue.use(VueCarousel)
 Vue.use(Vuetify)
 Vue.use(ElementUI)
-
-
 
 Vue.config.productionTip = false
 

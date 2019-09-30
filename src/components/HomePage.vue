@@ -11,20 +11,18 @@
     <br />
 
     <div class="container" style="width:100%">
-      <div class="row">
+      <div class="row" style="width:110%">
         <div class="col-xs-12 col-sm-12 col-md-4">
           <table style="background-color:white;width:100%">
             <tr>
-              <td style="text-align:center;background-color:yellow">Hasil Terakhir</td>
+              <td style="text-align:center;">
+                <div class="progress-bar progress-bar-striped bg-success">Hasil Terakhir</div>
+              </td>
             </tr>
-            <el-carousel
-              height="200px"
-              direction="vertical"
-              :autoplay="true"
-              :interval="2000"
-              :initial-index="2">
+            <el-carousel height="200px" direction="vertical" :autoplay="true" :interval="2000">
               <el-carousel-item v-for="x in items" :key="x.id">
-                &emsp;<a>{{x.age}}</a>&emsp;&emsp;&emsp;&emsp;
+                &emsp;
+                <a>{{x.age}}</a>&emsp;&emsp;&emsp;&emsp;
                 <span>{{x.first_name}}</span>&emsp;&emsp;&emsp;&emsp;
                 <span>{{x.last_name}}</span>
               </el-carousel-item>
@@ -89,19 +87,17 @@
         <div class="col-xs-12 col-sm-12 col-md-8">
           <table style="background-color:white;width:100%">
             <tr>
-              <td style="text-align:center;background-color:yellowgreen">Schedule</td>
+              <td style="text-align:center;">
+                <div class="progress-bar progress-bar-striped bg-success">PEMENANG LUCKYDRAW</div>
+              </td>
             </tr>
             <tr>
-              <el-carousel
-                height="200px"
-                direction="horizontal"
-                :autoplay="true"
-                :interval="1000"
-                :initial-index="2"
-              >
-                <el-carousel-item v-for="x in items" :key="x.id">
-                  <a>{{x.age}}</a>&emsp;&emsp;
-                  <span>{{x.first_name}}</span>
+              <el-carousel height="100px" direction="horizontal" :autoplay="true" :interval="1000">
+                <el-carousel-item v-for="x in winersLuckyDraw[0]" :key="x.id">
+                  <h1>{{x.totalWin}}</h1>&emsp;&emsp;
+                  <span>
+                    <h1>{{x.uName}}</h1>
+                  </span>
                 </el-carousel-item>
               </el-carousel>
             </tr>
@@ -109,27 +105,60 @@
           <br />
           <table style="background-color:white;width:100%">
             <tr>
-              <td style="text-align:center;background-color:yellowgreen">Schedule</td>
+              <td style="text-align:center;">
+                <div class="progress-bar progress-bar-striped bg-success">Schedule Static Top</div>
+              </td>
             </tr>
             <tr>
-              <el-carousel
-                height="200px"
-                direction="horizontal"
-                :autoplay="true"
-                :interval="1000"
-                :initial-index="2"
-              >
-                <el-carousel-item v-for="x in items" :key="x.id">
-                  <a>{{x.age}}</a>&emsp;&emsp;
-                  <span>{{x.first_name}}</span>
-                </el-carousel-item>
-              </el-carousel>
+              <div class="row">
+                <div class="col-xs-2 col-sm-2 col-md-2">
+                  <img class="img-responsive" src="../assets/partners/agenliga.png" />
+                  <span class="partnerlink">
+                    <!--<a target="_blank" href="https://agenliga.com">-->
+                    <a>AgenLiga.com</a>
+                  </span>
+                </div>
+                <div class="col-xs-2 col-sm-2 col-md-2">
+                  <img class="img-responsive" src="../assets/partners/agentaruhan.png" />
+                  <span class="partnerlink">
+                    <!--<a target="_blank" href="http://agentaruhan.com">-->
+                    <a>AgenTaruhan.com</a>
+                  </span>
+                </div>
+                <div class="col-xs-2 col-sm-2 col-md-2">
+                  <img class="img-responsive" src="../assets/partners/areabola.png" />
+                  <span class="partnerlink">
+                    <!--<a target="_blank" href="http://areabola.com">-->
+                    <a>AreaBola.com</a>
+                  </span>
+                </div>
+                <div class="col-xs-2 col-sm-2 col-md-2">
+                  <img class="img-responsive" src="../assets/partners/arenabetting.png" />
+                  <span class="partnerlink">
+                    <!--<a target="_blank" href="https://arenabetting.com">-->
+                    <a>ArenaBetting.com</a>
+                  </span>
+                </div>
+                <div class="col-xs-2 col-sm-2 col-md-2">
+                  <img class="img-responsive" src="../assets/partners/livetogel.png" />
+                  <span class="partnerlink">
+                    <!--<a target="_blank" href="https://livetogel.com">-->
+                    <a>Livetogel.com</a>
+                  </span>
+                </div>
+                <div class="col-xs-2 col-sm-2 col-md-2">
+                  <img class="img-responsive" src="../assets/partners/togeltoto.png" />
+                  <span class="partnerlink">
+                    <a target="_blank" href="https://togel777.com">Togeltoto.com</a>
+                  </span>
+                </div>
+              </div>
             </tr>
           </table>
           <br />
           <table style="background-color:white;width:100%">
             <tr>
-              <td style="text-align:center;background-color:yellowgreen">Schedule</td>
+              <td style="text-align:center;background-color:yellowgreen">Schedule Static Bottom</td>
             </tr>
             <tr>
               <el-carousel
@@ -147,6 +176,52 @@
             </tr>
           </table>
           <br />
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6">
+              <table style="background-color:white;width:100%">
+                <tr>
+                  <td style="text-align:center;background-color:yellowgreen">Schedule Mini Left</td>
+                </tr>
+                <tr>
+                  <el-carousel
+                    height="100px"
+                    direction="horizontal"
+                    :autoplay="true"
+                    :interval="1000"
+                    :initial-index="2"
+                  >
+                    <el-carousel-item v-for="x in winersLuckyDraw[0]" :key="x.id">
+                      <a>{{x.totalWin}}</a>&emsp;&emsp;
+                      <span>{{x.uName}}</span>
+                    </el-carousel-item>
+                  </el-carousel>
+                </tr>
+              </table>
+              <br />
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-6">
+              <table style="background-color:white;width:100%">
+                <tr>
+                  <td style="text-align:center;background-color:yellowgreen">Schedule Mini Right</td>
+                </tr>
+                <tr>
+                  <el-carousel
+                    height="100px"
+                    direction="horizontal"
+                    :autoplay="true"
+                    :interval="1000"
+                    :initial-index="2"
+                  >
+                    <el-carousel-item v-for="x in winersLuckyDraw[0]" :key="x.id">
+                      <a>{{x.totalWin}}</a>&emsp;&emsp;
+                      <span>{{x.uName}}</span>
+                    </el-carousel-item>
+                  </el-carousel>
+                </tr>
+              </table>
+            </div>
+            <br />
+          </div>
         </div>
       </div>
     </div>
