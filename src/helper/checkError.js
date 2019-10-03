@@ -6,6 +6,14 @@ export default {
             errCode: null
         }
         switch (e) {
+            case (1):
+                {
+                    respond = {
+                        message: 'Error Content!',
+                        errCode: 1
+                    }
+                    return respond;
+                };
             case (0):
                 {
                     respond = {
@@ -22,11 +30,27 @@ export default {
                     }
                     return respond;
                 };
+            case (-10):
+                {
+                    respond = {
+                        message: 'Invalid username or password!',
+                        errCode: -10
+                    }
+                    return respond;
+                }
             case (-12):
                 {
                     respond = {
                         message: 'Username or Password wrong!',
                         errCode: -12
+                    }
+                    return respond;
+                };
+            case (-13):
+                {
+                    respond = {
+                        message: 'Invalid Balance!',
+                        errCode: -13
                     }
                     return respond;
                 };
@@ -97,7 +121,7 @@ export default {
             case (-1000):
                 {
                     respond = {
-                        message: 'Invalid username or password!',
+                        message: 'Error from Server',
                         errCode: -1000
                     }
                     return respond;

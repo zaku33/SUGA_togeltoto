@@ -1,4 +1,3 @@
-/* eslint-disable */
 <template>
   <div class="container">
     <div class="row centered-form">

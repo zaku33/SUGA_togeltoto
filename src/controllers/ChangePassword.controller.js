@@ -1,5 +1,5 @@
 import apiServices from "@/services/apiServices.js";
-import moment from "moment";
+import KEY from "../helper/secretKey";
 import CheckError from "@/helper/checkError.js";
 import { mdbCardHeader, mdbCardBody, mdbCard, mdbCardTitle, mdbCardText } from "mdbvue";
 // import app from './App.controller'
@@ -23,10 +23,10 @@ export default {
         async ChangePassword() {
             var service = "WapAuthService";
             var method = "changePassword";
-            var secretKey = moment(new Date()).format("YYYY-MM-DD");
+            var secretKey = KEY.key
             var params = {
-                uName: localStorage.getItem('user_info'),
-                token: localStorage.getItem('access_token'),
+                uName: KEY.getUser,
+                token: KEY.getToken,
                 oldPass: this.oldPass,
                 newPass: this.newPass,
                 newPassConfirm: this.cNewPass
@@ -44,8 +44,8 @@ export default {
                 alert(`${check.message}`);
             } else {
                 alert(`Change password ${check.message}! Please login again!`);
-                localStorage.removeItem('user_info');
-                localStorage.removeItem('access_token');
+                KEY.deleteUser;
+                KEY.deleteToken;
                 this.$router.go('/home')
             }
         }

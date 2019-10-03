@@ -1,7 +1,6 @@
-/* eslint-disable */
 import apiServices from "@/services/apiServices.js";
 import CheckError from "@/helper/checkError.js";
-import moment from "moment";
+import KEY from "../helper/secretKey";
 import {
     mdbCard,
     mdbCardBody,
@@ -56,7 +55,7 @@ export default {
         async Register() {
             var service = "WapServiceBase";
             var method = "createNewMember";
-            var secretKey = moment(new Date()).format("YYYY-MM-DD");
+            var secretKey = KEY.key
             var params = {
                 uName: this.uName,
                 playerName: this.playerName,

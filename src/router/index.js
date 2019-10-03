@@ -1,4 +1,3 @@
-/* eslint-disable */
 import Vue from 'vue'
 import Router from 'vue-router'
 
@@ -18,6 +17,8 @@ import SportBook from '@/components/SportBook'
 import BetList from '@/components/BetList'
 import Transaction from '@/components/Transaction'
 import ChangePassword from '@/components/ChangePassword'
+import Deposit from '@/components/Deposit'
+import Withdraw from '@/components/Withdraw'
 
 //except page
 import NotFoundPage from '@/components/NotFoundPage'
@@ -85,6 +86,16 @@ const router = new Router({
             component: ChangePassword
         },
         {
+            path: '/deposit',
+            name: 'deposit',
+            component: Deposit
+        },
+        {
+            path: '/withdraw',
+            name: 'withdraw',
+            component: Withdraw
+        },
+        {
             path: '*',
             component: NotFoundPage
         }
@@ -92,7 +103,7 @@ const router = new Router({
 })
 router.beforeEach((to, from, next) => {
 
-    const requireLogin = ['/sportbook', '/betlist', '/transaction', '/changePassword'];
+    const requireLogin = ['/sportbook', '/betlist', '/transaction', '/changePassword', '/deposit', '/withdraw'];
     const publicPage = !requireLogin.includes(to.path);
     const loggedIn = localStorage.getItem('access_token');
     if (publicPage == false && !loggedIn) {
